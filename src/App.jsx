@@ -1,10 +1,15 @@
-function App() {
+import NavBar from "./components/Navbar";
+import ConnectWallet from "./components/ConnectWallet";
+import Footer from "./components/Footer";
 
+function App() {
   return (
-    <div>
-      <h1 className="bg-blue-50 text-center text-2xl p-4 font-bold text-neutral-400">Solana Airdrop Faucet</h1>
+    <div className="max-w-7xl mx-auto flex flex-col gap-6 p-4">
+      <NavBar />
+      <ConnectWallet />
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
