@@ -47,7 +47,7 @@ function SmallUI() {
 
 export default function ConnectWallet() {
   return (
-    <ConnectionProvider endpoint="https://solana-devnet.g.alchemy.com/v2/pCj-uOxC3IE0uYTdoKo3k">
+    <ConnectionProvider endpoint={import.meta.env.VITE_RPC_URL}>
       <WalletProvider wallets={[]} autoConnect>
         <WalletModalProvider>
           <SmallUI />

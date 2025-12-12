@@ -1,16 +1,219 @@
-# React + Vite
+**S - A_F — Solana Airdrop Faucet**
+==========================================================
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**A simple and modern Solana wallet demo that allows users to:** 
 
-Currently, two official plugins are available:
+* Connect a Solana wallet
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* Request SOL airdrops on devnet
 
-## React Compiler
+* View live SOL balance
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* Sign messages (prove wallet ownership)
 
-## Expanding the ESLint configuration
+* Send SOL to any address on devnet
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+> Built using React + Wallet Adapter + Solana Web3.js.
+
+* * *
+
+🚀 **Features**
+---------------
+
+### 1) Connect Wallet
+
+* Easily connect popular Solana wallets like Phantom, Solflare, and Backpack using Wallet Adapter.
+
+### 2) Request Devnet SOL Airdrop
+
+* Quickly receive free SOL on the Devnet for testing transactions and development.
+
+### 3) Real-Time SOL Balance
+
+* View your wallet’s current SOL balance with instant refresh support.
+
+### 4) Sign Messages (Ed25519)
+
+* Verify wallet ownership securely by signing messages and validating signatures.
+
+### 5) Send SOL
+
+* Transfer SOL to any devnet wallet address with one click.
+
+* * *
+
+🛠️ **Tech Stack**
+------------------
+
+*   **React + Vite** 
+> Fast frontend framework and build tool for creating modern web apps.
+    
+*   **Solana Wallet Adapter** 
+> Easily connects Solana wallets like Phantom, Solflare, and Backpack to your app.
+    
+*   **@solana/web3.js** 
+> Official Solana JavaScript library used to send transactions, get balances, and interact with the blockchain.
+    
+*   **@noble/ed25519** 
+> Cryptographic library used to sign and verify messages with the Ed25519 curve.
+    
+*   **TailwindCSS** 
+> Utility-first CSS framework for building responsive and modern UI components.
+    
+*   **React-Toastify** 
+> Shows clean, customizable toast notifications for alerts, errors, and success messages.
+      
+*   **Lucide Icons**
+    
+
+* * *
+
+📦 **Installation**
+-------------------
+
+Clone the repo:
+
+`git clone https://github.com/your-username/your-repo.git
+cd your-repo` 
+
+Install dependencies:
+
+`npm install` 
+
+* * *
+
+⚙️ **Environment Setup**
+-------------------
+
+If you want a custom RPC provider, create:
+
+**.env**
+
+`VITE_RPC_URL=https://api.devnet.solana.com` 
+
+And update ConnectionProvider:
+
+`<ConnectionProvider endpoint={import.meta.env.VITE_RPC_URL}>` 
+
+Start the project:
+
+`npm run dev` 
+
+* * *
+
+📚 **Component Overview**
+----------------------------
+| Component              | Purpose |
+| :---------------- | :------: |
+| `SmallUI`      |   Wallet connect + disconnect card   |
+| `ShowBalance`          |   Fetch & display SOL balance   |
+| `RequestAirdrop`    |  Request devnet SOL airdrop   |
+| `SignMessage` |  Sign + verify message ownership  |
+| `SendTokens`  |   Send SOL to another wallet   |
+| `ConnectWallet` |  Wraps all components + wallet providers   |
+  
+
+* * *
+
+🔎 **How Solana Airdrop Faucet Works**
+------------------------------
+
+### 1️⃣ Connect a Wallet
+
+*   Phantom
+
+* Backpack
+
+* MetaMash
+
+Once connected, the app can read the wallet’s public key and perform actions on Devnet.
+    
+
+### 2️⃣ Fetch & Display Wallet Balance
+
+After the wallet connects:
+
+* The app calls `connection.getBalance(publicKey)`
+
+* Converts lamports → SOL
+
+* Shows the real-time balance
+
+* Users can refresh anytime
+    
+
+### 3️⃣ Request Devnet Airdrop
+
+Users enter an amount and request free SOL on Devnet.
+
+* Convert entered SOL → lamports
+
+* Send RPC request: `connection.requestAirdrop(publicKey, lamports)`
+
+* Wait for confirmation
+
+* Update balance
+
+This is **free** and only works on **Devnet**.
+
+### 4️⃣ Sign a Message (Prove Ownership)
+
+Users can type any message and click Sign.
+
+* Message → UTF-8 encoded
+
+* Wallet signs using its private key
+
+* Signature is verified locally using @noble/ed25519
+
+* Base58 signature is shown and can be copied
+
+This proves the connected wallet truly belongs to the user.
+
+### 5️⃣ Send SOL Tokens
+
+Users can send SOL to another Devnet address.
+
+* Validate recipient address
+
+* Convert SOL → lamports
+
+* Build a Solana transaction using SystemProgram.transfer()
+
+* Wallet signs + sends the transaction
+
+* After confirmation, balance updates
+
+Useful for testing transfers.
+    
+
+* * *
+
+🤝 **Contributing**
+-------------------
+
+If you'd like to improve S - A_F (Solana Airdrop Faucet) or add new feature, feel free to open:
+
+*   Issues
+    
+*   Feature requests
+    
+*   Pull requests
+    
+
+Contributions are always welcome ❤️
+
+* * *
+
+📄 **License**
+--------------
+
+This project is available under the **MIT License**  - free to use, modify, and distribute.
+
+* * *
+
+👨‍💻 **Developer**
+--------------
+
+Designed & Developed by Balraj
+💡 MERN Developer | Web3 Enthusiast
