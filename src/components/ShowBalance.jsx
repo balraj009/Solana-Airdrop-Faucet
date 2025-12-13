@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import { LAMPORTS_PER_SOL } from "@solana/web3.js";
+import { toast } from "react-toastify";
 
 export default function ShowBalance() {
   const { connection } = useConnection();
@@ -15,6 +16,8 @@ export default function ShowBalance() {
 
     const lamports = await connection.getBalance(publicKey);
     setBalance(lamports / LAMPORTS_PER_SOL);
+
+    toast.success("Balance updated.");
 
     setLoading(false);
   }
